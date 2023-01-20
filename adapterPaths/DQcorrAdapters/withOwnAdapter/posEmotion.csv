@@ -1,0 +1,5 @@
+name	path
+posEmotion	../AdapterModels/posEmotion
+story	../AdapterModels/story
+argumentative	../AdapterModels/argumentative
+narration	../AdapterModels/narration

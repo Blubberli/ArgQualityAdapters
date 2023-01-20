@@ -1,0 +1,5 @@
+name	path
+effectiveness	../AdapterModels/effectiveness
+overall	../AdapterModels/overall
+quality	../AdapterModels/quality
+reasonableness	../AdapterModels/reasonableness

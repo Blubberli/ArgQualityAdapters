@@ -1,0 +1,10 @@
+name	path
+impact	../AdapterModels/impact
+effectiveness	../AdapterModels/effectiveness
+proposal	../AdapterModels/proposal
+overall	../AdapterModels/overall
+quality	../AdapterModels/quality
+reference	../AdapterModels/reference
+reasonableness	../AdapterModels/reasonableness
+clarity	../AdapterModels/clarity
+justification	../AdapterModels/justification

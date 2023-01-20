@@ -1,0 +1,10 @@
+name	path
+quality	../AdapterModels/quality
+effectiveness	../AdapterModels/effectiveness
+overall	../AdapterModels/overall
+posEmotion	../AdapterModels/posEmotion
+reasonableness	../AdapterModels/reasonableness
+clarity	../AdapterModels/clarity
+argumentative	../AdapterModels/argumentative
+cogency	../AdapterModels/cogency
+justification	../AdapterModels/justification

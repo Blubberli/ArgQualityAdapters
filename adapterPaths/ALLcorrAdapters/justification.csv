@@ -1,0 +1,10 @@
+name	path
+effectiveness	../AdapterModels/effectiveness
+proposal	../AdapterModels/proposal
+overall	../AdapterModels/overall
+quality	../AdapterModels/quality
+negEmotion	../AdapterModels/negEmotion
+reasonableness	../AdapterModels/reasonableness
+clarity	../AdapterModels/clarity
+argumentative	../AdapterModels/argumentative
+cogency	../AdapterModels/cogency

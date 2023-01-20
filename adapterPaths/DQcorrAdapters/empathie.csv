@@ -1,0 +1,7 @@
+name	path
+negEmotion	../AdapterModels/negEmotion
+story	../AdapterModels/story
+argumentative	../AdapterModels/argumentative
+narration	../AdapterModels/narration
+justification	../AdapterModels/justification
+QforJustification	../AdapterModels/QforJustification

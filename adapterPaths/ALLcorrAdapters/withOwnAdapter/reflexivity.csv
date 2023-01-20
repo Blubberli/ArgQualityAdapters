@@ -1,0 +1,8 @@
+name	path
+reference	../AdapterModels/reference
+effectiveness	../AdapterModels/effectiveness
+proposal	../AdapterModels/proposal
+overall	../AdapterModels/overall
+reasonableness	../AdapterModels/reasonableness
+story	../AdapterModels/story
+cogency	../AdapterModels/cogency

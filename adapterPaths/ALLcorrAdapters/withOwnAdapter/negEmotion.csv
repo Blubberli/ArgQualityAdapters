@@ -1,0 +1,6 @@
+name	path
+negEmotion	../AdapterModels/negEmotion
+empathy	../AdapterModels/empathy
+argumentative	../AdapterModels/argumentative
+narration	../AdapterModels/narration
+justification	../AdapterModels/justification

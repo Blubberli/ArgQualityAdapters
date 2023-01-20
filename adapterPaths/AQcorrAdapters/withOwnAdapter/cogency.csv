@@ -1,0 +1,6 @@
+name	path
+cogency	../AdapterModels/cogency
+effectiveness	../AdapterModels/effectiveness
+overall	../AdapterModels/overall
+quality	../AdapterModels/quality
+reasonableness	../AdapterModels/reasonableness

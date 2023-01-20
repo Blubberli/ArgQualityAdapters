@@ -1,0 +1,5 @@
+name	path
+quality	../AdapterModels/quality
+negEmotion	../AdapterModels/negEmotion
+clarity	../AdapterModels/clarity
+justification	../AdapterModels/justification
