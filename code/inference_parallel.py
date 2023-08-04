@@ -11,14 +11,14 @@ from utils import get_dynamic_parallel
 
 def predict(dataloader, model, out_put_path, task2label, dataset, task2identifier):
     output_dic = {}
-    for name in task2identifier.values:
-        output_dic[name] = []
+    for k, v in task2identifier.items():
+        output_dic[k] = []
     for id, batch in enumerate(tqdm(dataloader)):
         # print(batch)
         outputs = model(input_ids=batch["input_ids"], attention_mask=batch["attention_mask"])
         # print(outputs)
         for i in range(len(outputs)):
-            task = task2identifier.values[i]
+            task = list(task2identifier.keys())[i]
             predictions = outputs[i].logits
             label_num = task2label[task]
             if label_num == 1:
@@ -33,9 +33,16 @@ def predict(dataloader, model, out_put_path, task2label, dataset, task2identifie
                 probs = F.softmax(torch.tensor(predictions), dim=-1).tolist()
                 for el in probs:
                     output_dic[task].append(el)
-
     for task, predictions in output_dic.items():
-        dataset[task] = predictions
+        label_num = task2label[task]
+        if label_num == 1:
+            dataset[task] = predictions
+        elif label_num == 2:
+            dataset[task] = [el[1] for el in predictions]
+        else:
+            for i in range(label_num):
+                # get list of elements at index i
+                dataset[f"{task}_{i}"] = [el[i] for el in predictions]
     dataset.to_csv(out_put_path, sep="\t", index=False)
 
 
@@ -58,8 +65,7 @@ task2label = {"reasonableness": 1,
               "proposal": 2,
               "QforJustification": 2,
               "cogency": 1,
-              "respect": 3,
-              "moderation": 2}
+              "respect": 3}
 
 task2identifier = {"reasonableness": "falkne/reasonableness",
                    "effectiveness": "falkne/effectiveness",
@@ -109,4 +115,4 @@ if __name__ == '__main__':
     test = InferenceDataset(path_to_dataset=args.testdata, tokenizer=tokenizer, text_col=args.text_col)
     dataloader = DataLoader(test, batch_size=args.batch_size)
     predict(dataloader=dataloader, model=model, dataset=test.dataset,
-            out_put_path=args.outputpath, task2label=task2label, task2identifier=task2identifier)
+            out_put_path=args.output_path, task2label=task2label, task2identifier=task2identifier)
