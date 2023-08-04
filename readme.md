@@ -75,7 +75,44 @@ We provide the file for the adapters we trained on all dimensions. The file that
 is located at ```code/adapterPaths/pretrainedAdapters.tsv```
 
 ### Inference
-We provide all single-task adapters (for each dimension) and all fusion models. 
+
+For simplified inference, we uploaded the adapters to the adapter hub, such they can be loaded and used like any other available adapter.
+We provide two scripts to run the adapters (model of one seed per quality dimension, each dimension has the model that was trained on the largest available dataset of the corresponding quality dimension) in /code.
+For example, you can run a single quality dimension prediction on a dataset of your choice with the following command:
+```
+python inference_simple.py input_file.csv text_column batch_size overall output_file.csv
+```
+In this case it generates predictions for the dimension *overall* (see the following table for availbale task identifiers (adapters)):
+| quality dimension | task (identifier) | 
+| -------- | -------- |
+| quality   | as left col   |
+| clarity   | as left col   |
+| cogency   | as left col   |
+| effectiveness   | as left col   |
+| reasonableness   | as left col   |
+| overall   | as left col   |
+| impact   | as left col   |
+| argumentative   | as left col   |
+| positive Emotion   | posEmotion   |
+| negative Emotion   | negEmotion   |
+| narrative   | as left col   |
+| question for justification   | QforJustification   |
+| empathy   | as left col   |
+| proposal   | as left col   |
+| reference to other arguments   | reference   |
+| justification   | as left col   |
+| common good   | cgood   |
+| respect   | as left col   |
+| storytelling   | story   |
+| interactivity   | as left col   |
+
+To run all available adapters on your dataset run:
+```
+python inference_parallel.py input_file.csv text_column batch_size output_file.csv
+```
+Note however that this will take some time.
+
+To run all models used in the paper, we provide all single-task adapters (for each dimension) and all fusion models. 
 The single-task adapters are compressed into ```compressed_models/AdapterModels.tar.gz``` and the fusion models are compressed into ```compressed_models/FusionModels_*.tar.gz```.
 First you need to extract the models. To do so, run the following command in the code folder:
 ```
