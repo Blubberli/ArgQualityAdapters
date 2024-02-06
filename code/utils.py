@@ -109,5 +109,30 @@ def get_dynamic_parallel(adapter_number):
                  "adapter14",
                  "adapter15",
                  "adapter16", "adapter17", "adapter18", "adapter19", "adapter20")
+    elif adapter_number == 22:
+        return Parallel("adapter0", "adapter1", "adapter2", "adapter3", "adapter4", "adapter5", "adapter6",
+                        "adapter7", "adapter8", "adapter9", "adapter10", "adapter11", "adapter12", "adapter13",
+                        "adapter14",
+                        "adapter15",
+                        "adapter16", "adapter17", "adapter18", "adapter19", "adapter20", "adapter21")
+    elif adapter_number == 23:
+        return Parallel("adapter0", "adapter1", "adapter2", "adapter3", "adapter4", "adapter5", "adapter6",
+                        "adapter7", "adapter8", "adapter9", "adapter10", "adapter11", "adapter12", "adapter13",
+                        "adapter14",
+                        "adapter15",
+                        "adapter16", "adapter17", "adapter18", "adapter19", "adapter20", "adapter21", "adapter22")
+    elif adapter_number == 24:
+        return Parallel("adapter0", "adapter1", "adapter2", "adapter3", "adapter4", "adapter5", "adapter6",
+                        "adapter7", "adapter8", "adapter9", "adapter10", "adapter11", "adapter12", "adapter13",
+                        "adapter14",
+                        "adapter15",
+                        "adapter16", "adapter17", "adapter18", "adapter19", "adapter20", "adapter21", "adapter22",
+                        "adapter23")
+    elif adapter_number == 25:
+        return Parallel("adapter0","adapter1","adapter2","adapter3","adapter4","adapter5","adapter6","adapter7","adapter8","adapter9","adapter10","adapter11","adapter12","adapter13","adapter14","adapter15","adapter16","adapter17","adapter18","adapter19","adapter20","adapter21","adapter22","adapter23","adapter24")
+    elif adapter_number == 26:
+        return Parallel("adapter0","adapter1","adapter2","adapter3","adapter4","adapter5","adapter6","adapter7","adapter8","adapter9","adapter10","adapter11","adapter12","adapter13","adapter14","adapter15","adapter16","adapter17","adapter18","adapter19","adapter20","adapter21","adapter22","adapter23","adapter24","adapter25")
+    elif adapter_number == 27:
+        return Parallel("adapter0","adapter1","adapter2","adapter3","adapter4","adapter5","adapter6","adapter7","adapter8","adapter9","adapter10","adapter11","adapter12","adapter13","adapter14","adapter15","adapter16","adapter17","adapter18","adapter19","adapter20","adapter21","adapter22","adapter23","adapter24","adapter25","adapter26")
     else:
         print("specified adapter number has no setup yet: %d" % adapter_number)
