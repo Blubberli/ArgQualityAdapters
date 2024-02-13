@@ -6,9 +6,10 @@ import pandas as pd
 import seaborn as sns
 import argparse
 
+from tqdm import tqdm
+
 
 def read_dim2adapter_order(path):
-    adapter2order = {}
     data = pd.read_csv(path, sep="\t")
     names = list(data.name.values)
     # replace ibm_rank with quality
@@ -25,10 +26,12 @@ def read_attention(path):
     # return the sum of the attention scores for each adapter over layers and instances
     with open(path, 'rb') as f:
         matrix = pickle.load(f)
-    avg_matrix = np.array(matrix).sum(axis=0)
-    sum_over_layers = list(avg_matrix.data)
-    return sum_over_layers
+    return matrix
 
+def create_all_heatmaps(scores, labels, save_path):
+    for i, score in tqdm(enumerate(scores)):
+        create_heatmap(score, labels, save_path + "/instance_%s.png" % i)
+    print("Heatmaps created and saved in %s" % save_path)
 
 def create_heatmap(scores, labels, save_path):
     # merge labels and scores into dic
@@ -60,7 +63,6 @@ def create_heatmap(scores, labels, save_path):
 
     # tight layout
     plt.tight_layout()
-    print("Saving figure to %s" % save_path)
     # save the plot
     plt.savefig(save_path, dpi=500)
 
@@ -74,4 +76,4 @@ if __name__ == '__main__':
     args = parser.parse_args()
     adapter2oder = read_dim2adapter_order(args.pretrained_adapter_path)
     scores = read_attention(args.attention_scores_path)
-    create_heatmap(scores, adapter2oder, args.save_path)
+    create_all_heatmaps(scores, adapter2oder, args.save_path)
